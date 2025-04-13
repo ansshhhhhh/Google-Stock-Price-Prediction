@@ -12,28 +12,15 @@ This project predicts Google's (GOOGL) stock price with a unique, industry-aware
 - **Focused Data Integration:**  
   Only the most relevant, highly correlated stocks are used as inputs to the model, resulting in a leaner yet more robust prediction framework.
 
-## Technical Summary
+## Tech Stack
 
-- **Data Source:** Yahoo Finance via the `yfinance` library.  
-- **Preprocessing:** Data normalization using MinMaxScaler; sequences built with a sliding window (14 weeks context).  
-- **Model:** A stacked, bidirectional LSTM in PyTorch.
-  
-  ```python
-  class LSTMModel(nn.Module):
-      def __init__(self, num_company):
-          super().__init__()
-          self.lstm1 = nn.LSTM(input_size=num_company, hidden_size=128, num_layers=1,
-                               batch_first=True, bidirectional=True)
-          self.lstm2 = nn.LSTM(input_size=256, hidden_size=128, num_layers=1,
-                               batch_first=True, bidirectional=True)
-          self.ll = nn.Linear(256, 1)
+- **Programming Language:** Python  
+- **Data Acquisition:** yfinance  
+- **Data Handling:** Pandas  
+- **Preprocessing:** scikit-learn (MinMaxScaler)  
+- **Deep Learning Framework:** PyTorch  
+- **Visualization:** Matplotlib
 
-      def forward(self, x):
-          x, _ = self.lstm1(x)
-          x, _ = self.lstm2(x)
-          x = x[:, -1, :]
-          return self.ll(x).squeeze(1)
-  ```
 
 ## Results
 
