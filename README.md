@@ -35,22 +35,6 @@ This project predicts Google's (GOOGL) stock price with a unique, industry-aware
           return self.ll(x).squeeze(1)
   ```
 
-## Usage
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/yourusername/stock-price-prediction-lstm.git
-   cd stock-price-prediction-lstm
-   ```
-2. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. **Run the Project:**
-   ```bash
-   python stock_predictor.py
-   ```
-
 ## Results
 
 The model’s performance is evaluated using Mean Squared Error (MSE) and visual plots that compare the actual vs. predicted stock prices over time. The strategic selection of correlated stocks leads to improved accuracy relative to models using unfiltered inputs.
